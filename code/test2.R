@@ -1,1 +1,1 @@
-print("well, doe sit work?")
+print("well, does it work?")
