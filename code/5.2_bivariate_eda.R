@@ -3,32 +3,33 @@ rm(list = ls())
 
 #Load data
 obs <- read.csv("./data/obs.csv")
-attach(obs)
+#attach(obs)
+obs$wrb1 <- factor(obs$wrb1, labels=c("a", "c", "f"))
 
 #Create 2x2 plot area
 par(mfrow=c(2,2))
 
-plot(Clay1,Clay2)
+plot(obs$Clay1,obs$Clay2)
 abline(0,1,lty=2) #Adds straight line, int = 0, grad = 1
 title("default axes, subsoil vs. topsoil")
 
 #Adds lines to show mean of each axis.
-abline(h=mean(Clay2))
-abline(v=mean(Clay1))
+abline(h=mean(obs$Clay2))
+abline(v=mean(obs$Clay1))
 
-plot(Clay1,Clay2,xlim=c(0,100),ylim=c(0,100),pch=20)
+plot(obs$Clay1,obs$Clay2,xlim=c(0,100),ylim=c(0,100),pch=20)
 abline(0,1,lty=2)
 title("axes 0..100, subsoil vs. topsoil")
-abline(h=mean(Clay2)); abline(v=mean(Clay1))
+abline(h=mean(obs$Clay2)); abline(v=mean(obs$Clay1))
 
-plot(Clay2,Clay1); abline(0,1,lty=2)
+plot(obs$Clay2,obs$Clay1); abline(0,1,lty=2)
 title("default axes, topsoil vs. subsoil")
-abline(h=mean(Clay1)); abline(v=mean(Clay2))
+abline(h=mean(obs$Clay1)); abline(v=mean(obs$Clay2))
 
-plot(Clay2,Clay1,xlim=c(0,100),ylim=c(0,100),pch=20)
+plot(obs$Clay2,obs$Clay1,xlim=c(0,100),ylim=c(0,100),pch=20)
 abline(0,1,lty=2)
 title("axes 0..100, topsoil vs. subsoil")
-abline(h=mean(Clay1)); abline(v=mean(Clay2))
+abline(h=mean(obs$Clay1)); abline(v=mean(obs$Clay2))
 
 par(mfrow=c(1,1))# reset to 1 plot per figure
 
@@ -36,34 +37,32 @@ par(mfrow=c(1,1))# reset to 1 plot per figure
 #####
 
 par(mfrow=c(2,2))
-plot(Clay1, Clay2, xlim=c(0,80), ylim=c(0,80),
-  pch=as.numeric(wrb1))
+plot(obs$Clay1, obs$Clay2, xlim=c(0,80), ylim=c(0,80),
+  pch=as.numeric(obs$wrb1))
 
 abline(0,1,lty=2)
-abline(h=mean(Clay2)); abline(v=mean(Clay1))
-legend(60, 20, legend=levels(wrb1), pch=1:nlevels(wrb1), bty="n")
+abline(h=mean(obs$Clay2)); abline(v=mean(obs$Clay1))
+legend(60, 20, legend=levels(obs$wrb1), pch=1:nlevels(obs$wrb1), bty="n")
 
-plot(Clay1, Clay2, xlim=c(0,80), ylim=c(0,80), pch=20,
-  col=as.numeric(wrb1))
+plot(obs$Clay1, obs$Clay2, xlim=c(0,80), ylim=c(0,80), pch=20,
+  col=as.numeric(obs$wrb1))
 
-legend(60, 20, legend=levels(wrb1), pch=20,
-  col=1:nlevels(wrb1), bty="n")
+legend(60, 20, legend=levels(obs$wrb1), pch=20,
+  col=1:nlevels(obs$wrb1), bty="n")
 
 abline(0, 1, lty=2)
-abline(h=mean(Clay2)); abline(v=mean(Clay1))
+abline(h=mean(obs$Clay2)); abline(v=mean(obs$Clay1))
 
-plot(Clay1, Clay2, xlim=c(0,80), ylim=c(0,80),
-  pch=as.numeric(wrb1), col=as.numeric(wrb1))
+plot(obs$Clay1, obs$Clay2, xlim=c(0,80), ylim=c(0,80),
+  pch=as.numeric(obs$wrb1), col=as.numeric(obs$wrb1))
 
 abline(0, 1, lty=2, col=5)
-abline(h=mean(Clay2)); abline(v=mean(Clay1))
+abline(h=mean(obs$Clay2)); abline(v=mean(obs$Clay1))
 
-legend(60, 20, levels(wrb1), pch=1:nlevels(wrb1),
-  col=1:nlevels(wrb1), bty="n")
+legend(60, 20, levels(obs$wrb1), pch=1:nlevels(obs$wrb1),
+  col=1:nlevels(obs$wrb1), bty="n")
 
 par(mfrow=c(1,1))
 
 
 #####
-
-
