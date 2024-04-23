@@ -64,5 +64,6 @@ legend(60, 20, levels(obs$wrb1), pch=1:nlevels(obs$wrb1),
 
 par(mfrow=c(1,1))
 
+#GIT test VM Fedora
 
 #####
