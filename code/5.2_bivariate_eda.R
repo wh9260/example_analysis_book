@@ -33,7 +33,6 @@ abline(h=mean(obs$Clay1)); abline(v=mean(obs$Clay2))
 
 par(mfrow=c(1,1))# reset to 1 plot per figure
 
-
 #####
 
 par(mfrow=c(2,2))
@@ -64,5 +63,21 @@ legend(60, 20, levels(obs$wrb1), pch=1:nlevels(obs$wrb1),
 
 par(mfrow=c(1,1))
 
-
 #####
+
+plot(obs$Clay2 ~ obs$Clay1, pch=20,col=as.numeric(obs$wrb1))
+legend(60, 20, legend=levels(obs$wrb1), pch=20, col=1:nlevels(obs$wrb1), bty="n")
+for (f in c(0.1,0.5, 2/3, 1)) {lines(lowess(obs$Clay1, obs$Clay2, f=f), lwd=2, col="blue")}
+abline(lm(obs$Clay2 ~ obs$Clay1), lty=2))
+
+
+
+
+
+
+
+
+
+
+
+
