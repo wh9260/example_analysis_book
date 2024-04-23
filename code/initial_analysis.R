@@ -1,6 +1,7 @@
 #Initial Analysis
 
 #Load data from file
+rm(list = ls())
 obs <- read.csv("./data/obs.csv")
 
 #Changes ZONE to Factor type
@@ -28,4 +29,5 @@ t.layers$layer <- as.factor(t.layers$layer)
 
 #Save.
 rm(plot.id)
-save(t.obs, t.layers, file="t.RData")
+save(t.obs, t.layers, file="./data/t.RData")
+
