@@ -63,13 +63,6 @@ legend(60, 20, levels(obs$wrb1), pch=1:nlevels(obs$wrb1),
 
 par(mfrow=c(1,1))
 
-<<<<<<< HEAD
-=======
-#GIT test VM Fedora
-
-#fdjklfjdklasfdklsakl
-
->>>>>>> 2d4b669660b70da1c0e8168ec7858646b21f3f61
 #####
 
 plot(obs$Clay2 ~ obs$Clay1, pch=20,col=as.numeric(obs$wrb1))
