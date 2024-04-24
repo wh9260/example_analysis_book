@@ -68,13 +68,25 @@ par(mfrow=c(1,1))
 plot(obs$Clay2 ~ obs$Clay1, pch=20,col=as.numeric(obs$wrb1))
 legend(60, 20, legend=levels(obs$wrb1), pch=20, col=1:nlevels(obs$wrb1), bty="n")
 for (f in c(0.1,0.5, 2/3, 1)) {lines(lowess(obs$Clay1, obs$Clay2, f=f), lwd=2, col="blue")}
-abline(lm(obs$Clay2 ~ obs$Clay1), lty=2))
+abline(lm(obs$Clay2 ~ obs$Clay1), lty=2)
 
+#Task 14
 
+lm21 <- lm(obs$Clay1 ~ obs$Clay2)
+summary(lm21)
 
+plot(obs$Clay1, obs$Clay2, pch = 20)
 
+title("Ordinary least-squares regression, subsoil vs. topsoil clay")
+abline(lm21)
+segments(obs$Clay1, obs$Clay2, obs$Clay1, fitted(lm21), lty=2)
 
+#Task 20 - regression diagnostics
 
+plot(fitted(lm21),obs$Clay2,pch=20,xlab="Fitted",ylab="Observed",
+  xlim=c(5,85),ylim=c(5,85),main="Observed vs. Fitted Clay %, 0-10cm")
+abline(0,1)
+segments(fitted(lm21),obs$Clay2,fitted(lm21),fitted(lm21))
 
 
 
