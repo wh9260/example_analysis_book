@@ -72,7 +72,7 @@ abline(lm(obs$Clay2 ~ obs$Clay1), lty=2)
 
 #Task 14
 
-lm21 <- lm(obs$Clay1 ~ obs$Clay2)
+lm21 <- lm(obs$Clay2 ~ obs$Clay1)
 summary(lm21)
 
 plot(obs$Clay1, obs$Clay2, pch = 20)
@@ -87,6 +87,7 @@ plot(fitted(lm21),obs$Clay2,pch=20,xlab="Fitted",ylab="Observed",
   xlim=c(5,85),ylim=c(5,85),main="Observed vs. Fitted Clay %, 0-10cm")
 abline(0,1)
 segments(fitted(lm21),obs$Clay2,fitted(lm21),fitted(lm21))
+
 
 
 
